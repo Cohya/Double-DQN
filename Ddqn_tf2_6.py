@@ -1,5 +1,5 @@
 
-
+import time
 import pickle
 import gym 
 import os 
@@ -236,13 +236,13 @@ class ReplayMemory:
     
     
 class DQN(object):
-    def __init__(self,num_channels, image_size , K, conv_layer_sizes, hidden_layer_sizes):
+    def __init__(self,num_channels, image_size , K, conv_layer_sizes, hidden_layer_sizes,  scope = 'modelFunction'):
         """
         K = number of output nodes
         """
 
         self.K = K # number of actions output 
-        
+        self.scope = scope
         # the class of the loss 
         self.huber_func = tf.keras.losses.Huber()
         
@@ -264,7 +264,7 @@ class DQN(object):
             elif pad == 'VALID':
                 p1 = 0#
             image_size = np.ceil(1 + (image_size - filtersz + p1 + p1)/stride) ## just to know what is the size of the output
-            print(int(image_size), p1)
+
         ###  lets calculate the size of the input after flatten 
         M1 = int(image_size**2 * mi) ## it is a squred image 
         
@@ -404,7 +404,7 @@ def learn(model, target_model, experience_replay_buffer, gamma, batch_size):# so
     cost_i = model.update_weights(states, actions, targets)
     return cost_i
 
-import time 
+ 
 
 def watch_agent(env, model, image_transformer = None):
     s = env.reset()
@@ -430,13 +430,13 @@ def watch_agent(env, model, image_transformer = None):
     
 def record_agent(env, model,image_transformer = None, videoNum= 0):
     dire = './videos/' + 'vid_' + str(videoNum)
-    env = wrappers.Monitor(env, dire)
+    env = wrappers.Monitor(env, dire, force = True)
     s = env.reset()
     obs_small = image_transformer.transform(s)
     state = np.stack([obs_small] * 4, axis = 2)
     done = False
     episode_reward = 0
-    
+    print("The agent is playing, please be patient...")
     while not done:
         action = model.sample_action(state, eps = 0.01)
         obs, reward, done, info = env.step(action)
@@ -445,7 +445,7 @@ def record_agent(env, model,image_transformer = None, videoNum= 0):
         
         episode_reward += reward
         state = next_state
-        time.sleep(0.02)
+        # time.sleep(0.02)
         
     print("record video game in folder video %s / " % 'vid_' + str(videoNum), "episode reward: ", episode_reward)
     return episode_reward
@@ -837,8 +837,8 @@ def main_statistic(num_of_games = 300, statistics = True, video= False):
     if video:
         r = 0
         count = 0
-        while r < 350:
-            r = record_agent(env, model,image_transformer = image_transformer, videoNum= 'epsilon_0.01'+str(count))
+        while r <= 428:
+            r = record_agent(env, model,image_transformer = image_transformer, videoNum= 'epsilon_0.01_'+"best_game")
             
             count += 1
             
@@ -860,9 +860,20 @@ if __name__ == '__main__':
         
     elif y == 2:
         # check statistics
+        while True:
+            bo = input("Do you want to save a game where the agent finish the game (Y/N)? ")
+            
+            if bo == 'Y' or bo == 'y' or bo == 'yes' or bo == 'Yes':
+                vi = True
+                break
+            elif bo == 'N' or bo == 'n' or bo == 'no' or bo == 'No':
+                vi = False
+                break
+            
+            print("Please enter a valid answer Y/N!")
         num_of_games = int(input("Enter the number of game that you want to test on:"))
-        main_statistic(num_of_games = num_of_games, statistics = True, video = False)
-        print("pickle file of the reward per episode was saved!")
+        main_statistic(num_of_games = num_of_games, statistics = True, video = vi)
+        print("pickle file of the reward per episode was saved! ('rewards_stat')")
     elif y == 3 or y == 4:
         # Watch agent | record
         env = gym.make("BreakoutDeterministic-v4") # <- 
