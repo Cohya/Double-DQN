@@ -15,7 +15,8 @@ and here ![IMAGE_DESCRIPTION](plots/Histogram.png)
 -->
 
 <img src="plots/Training.PNG" width="200" height="200">
-# Results
-<img src="pplots/Histogram.png" width="200" height="200">
 
+# Results
+<img src="plots/Histogram.png" width="200" height="200">
+<img src="plots/gif.gif" width="200" height="200">
 ![Alt Text](plots/gif.gif)
