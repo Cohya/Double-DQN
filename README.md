@@ -13,5 +13,5 @@ Just run the Ddqn_tf2_6.py file and follow the instruction!
 
 # Results
 
-![IMAGE_DESCRIPTION](plots/Histogram.png)
+![IMAGE_DESCRIPTION](plots/Histogram.png =250x250)
 ![Alt Text](plots/gif.gif)
