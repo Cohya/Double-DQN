@@ -5,8 +5,10 @@ Required libraries:
 2) numpy 
 3) Tensorflow 
 
+## For running the DDQN:
+Just run the Ddqn_tf2_6.py file and follow the instruction!
 
- Just run the Ddqn_tf2_6.py file and follow the instruction!
+# Trining plot
 ![IMAGE_DESCRIPTION](plots/Training.PNG)
-![Alt Text](./plots/Training.png)
+
 ![Alt Text](gif.gif)
