@@ -11,4 +11,7 @@ Just run the Ddqn_tf2_6.py file and follow the instruction!
 # Trining plot
 ![IMAGE_DESCRIPTION](plots/Training.PNG)
 
+# Results
+# Trining plot
+![IMAGE_DESCRIPTION](plots/Histogram.png)
 ![Alt Text](gif.gif)
