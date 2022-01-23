@@ -14,9 +14,9 @@ your comment goes here ![IMAGE_DESCRIPTION](plots/Training.PNG)
 and here ![IMAGE_DESCRIPTION](plots/Histogram.png)
 -->
 
-<img src="plots/Training.PNG" width="200" height="200">
+<img src="plots/Training.PNG" width="300" height="300">
 
 # Results
-<img src="plots/Histogram.png" width="200" height="200">
-<img src="plots/gif.gif" width="200" height="200">
+<img src="plots/Histogram.png" width="300" height="300">
+<img src="plots/gif.gif" width="300" height="400">
 ![Alt Text](plots/gif.gif)
