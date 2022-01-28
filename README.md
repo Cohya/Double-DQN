@@ -14,10 +14,11 @@ your comment goes here ![IMAGE_DESCRIPTION](plots/Training.PNG)
 and here ![IMAGE_DESCRIPTION](plots/Histogram.png)
 ![Alt Text](plots/gif.gif)
 -->
-
+Based on epsilon greedy with epsilon decreas linearly from 1 ---> 0.1
 <img src="plots/Training.PNG" width="400" height="300">
 
 # Results
+Based on epsilon greedy with epsilon = 0.01 and 300 games
 <img src="plots/Histogram.png" width="400" height="350">
 <img src="plots/gif.gif" width="300" height="400">
 
