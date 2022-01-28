@@ -21,3 +21,4 @@ and here ![IMAGE_DESCRIPTION](plots/Histogram.png)
 <img src="plots/Histogram.png" width="400" height="350">
 <img src="plots/gif.gif" width="300" height="400">
 
+## Watch on youtube: https://youtu.be/rqz6ZhlWY1s
