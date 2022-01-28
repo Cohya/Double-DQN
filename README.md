@@ -14,7 +14,7 @@ your comment goes here ![IMAGE_DESCRIPTION](plots/Training.PNG)
 and here ![IMAGE_DESCRIPTION](plots/Histogram.png)
 ![Alt Text](plots/gif.gif)
 -->
-Based on epsilon greedy with epsilon decreas linearly from 1 ---> 0.1
+Based on epsilon greedy with epsilon decreases linearly from 1 ---> 0.1 during the first 1 million frames and then stays constant as 0.1.
 
 <img src="plots/Training.PNG" width="400" height="300">
 
