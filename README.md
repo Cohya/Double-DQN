@@ -8,7 +8,7 @@ Required libraries:
 ## For running the DDQN:
 Just run the Ddqn_tf2_6.py file and follow the instruction!
 
-# Trining plot
+# Training plot
 <!---
 your comment goes here ![IMAGE_DESCRIPTION](plots/Training.PNG)
 and here ![IMAGE_DESCRIPTION](plots/Histogram.png)
